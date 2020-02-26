@@ -19,10 +19,6 @@ Copyright (C) 21 Feb 20: Eduard Marian
     https://EduardMarian.xyz
     eduard_marian@protonmail.com
     Use at your own risk
-
-History:
-  2020/02/21: Start
-  2020/02/25: Added time in output files
 """
 
 import requests, argparse, os, time
