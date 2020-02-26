@@ -119,11 +119,11 @@ def Main():
 
 	# MULTI LIST HASH FUNCTION
 	elif args.input and args.key:
-		file = open(output,"w+")
+		file = open((args.output or output),"w+")
 		file.close()
 		with open(args.input) as o:
 			for line in o.readlines():
-				VT_Request(args.key, line.rstrip(), output)
+				VT_Request(args.key, line.rstrip(), (args.output or output))
 				if args.premium == 1:
 					time.sleep(1)
 				else:
