@@ -100,7 +100,7 @@ def VT_Request(key, hash, output):
 		print(hash + ": CAN NOT BE SEARCHED")
 
 def Main():
-	parser = argparse.ArgumentParser(description="Program to search VirusTotal reports with search terms (MD5, SHA1, SHA256) for single hash or multiple list found in the argument file.")
+	parser = argparse.ArgumentParser(description="Search VirusTotal reports with search terms (MD5, SHA1, SHA256) for single hash or multiple hash array found in the argument file.")
 	parser.add_argument("-i", "--input", type=checkfile, required=False, help="Input File Location (EX: /Path/To/input.txt)")
 	parser.add_argument("-o", "--output", required=False, help="Output File Location (EX: /Path/To/output.txt)")
 	parser.add_argument("-m", "--md5", type=checkhash, required=False, help="Single Hash (EX: D41D8CD98F00B204E9800998ECF8427E)")
