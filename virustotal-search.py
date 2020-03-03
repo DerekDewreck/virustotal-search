@@ -80,16 +80,16 @@ def VT_Request(key, hash, output):
 	# DOES THE HASH EXISTS IN VT DATABASE?
 	elif response == 1:
 		positives = int(json_response.get("positives"))
-		if positives == 0:
-			print(hash + ": NOT MALICIOUS")
-			file = open(output,"a")
-			file.write(hash + " 0")
-			file.write("\n")
-			file.close()
-		else:
+		if positives >= 3:
 			print(hash + ": MALICIOUS")
 			file = open(output,"a")
 			file.write(hash + " " + str(positives))
+			file.write("\n")
+			file.close()
+		else:
+			print(hash + ": NOT MALICIOUS")
+			file = open(output,"a")
+			file.write(hash + " 0")
 			file.write("\n")
 			file.close()
 	else:
@@ -108,10 +108,10 @@ def Main():
 	output = "virustotal-search-%04d%02d%02d-%02d%02d%02d.txt" % localTime[0:6]
 
 	# SINGLE HASH FUNCTION
-	if args.hash and args.key:
+	if args.md5 and args.key:
 		file = open((args.output or output),"w+")
 		file.close()
-		VT_Request(args.key, args.hash.rstrip(), (args.output or output))
+		VT_Request(args.key, args.md5.rstrip(), (args.output or output))
 
 	# MULTI LIST HASH FUNCTION
 	elif args.input and args.key:
